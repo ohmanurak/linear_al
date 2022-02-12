@@ -1,6 +1,5 @@
-clc, clear
-X = rand(15);
-[l u]=luu(X);
-a = inverse(X)
+clc,clear
+X = [1,2,3,1;5,3,2,2;7,8,9,2;4,5,6,8] 
+a=inveme2(X);
 
 
