@@ -14,6 +14,6 @@ else
         cofactor= ((-1)^(j-1))*matrix(1,j)*dete(smaller(matrix,j));
         answer = answer + cofactor;
     end
-    deter = answer
+    deter = answer;
 end
 

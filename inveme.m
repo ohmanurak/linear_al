@@ -16,5 +16,5 @@ for i = 1:r
 end
 cof =m;
 adj=cof.';
-inverse = (1/dete(A))*adj
+inverse = (1/dete(A))*adj;
 end

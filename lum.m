@@ -1,4 +1,4 @@
-function [l u anser detx] = lum(matrix,x)
+function [l u anser] = lum(matrix,x)
 [m,n] = size(matrix);
 if m ~= n
     disp('incorrect dimension');
@@ -24,7 +24,6 @@ u=U;%upper triangle
 l=L;%lower triangle
 d = l\x;
 anser = u\d;%answer of the system
-b = det(l);
-detx= b*prod(diag(u));
+
 end
 

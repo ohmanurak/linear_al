@@ -1,8 +1,8 @@
 function [matrix,x] = block(A,b)
 [m n] = size(A);
 if m&&n==1
-    matrix = A
-    x = A\b
+    matrix = A;
+    x = inveme(A)*b
 end
 if m<n
     disp('the system has free variable')
@@ -24,7 +24,7 @@ end
 
 AA = aug(1:m,1:n);
 bb = aug(1:end,end);
-matrix = aug;
-x = AA\bb
+matrix = aug
+x = inveme(AA)*bb
 end
 
