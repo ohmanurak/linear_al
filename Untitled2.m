@@ -1,6 +1,9 @@
 clc,clear
-X = [2 -1 1;1 1 0;3 -1 -2]; 
-b = [3;-1;7];
-block(X,b);
+X = randi([1 10],5,5);
+b = randi([1 10],5,1);
+[X b]
+[matrix xxx]=block(X,b);
+X*xxx
+
 
 

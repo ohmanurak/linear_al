@@ -1,8 +1,7 @@
 function [l u anser] = lum(matrix,x)
 [m,n] = size(matrix);
 if m ~= n
-    disp('incorrect dimension');
-    return;
+    error('incorrect dimension');
 end
 L = zeros(m,m);
 U = zeros(m,m);
@@ -22,8 +21,18 @@ end
 
 u=U;%upper triangle
 l=L;%lower triangle
-d = l\x;
-anser = u\d;%answer of the system
+% inveme(l)
+d= inveme(l)*x;% d = l\x;
 
+
+% disp(u\d)
+if isnan(inveme(u)*d)|isinf(inveme(u)*d) ~= zeros(size(inveme(u)*d))
+    error('inconsistent matrix')
+end
+anser = inveme(u)*d;%answer of the system
+for i = 1:length(anser)
+    aa = sprintf('x%d = %d\n',i,anser(i,:));
+    fprintf(aa);
+end
 end
 

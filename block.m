@@ -5,7 +5,7 @@ if m&&n==1
     x = inveme(A)*b
 end
 if m<n
-    disp('the system has free variable')
+    error('inconsistent matrix')
 end
 aug = [A b];
 for i=1:m-1
@@ -14,7 +14,12 @@ for i=1:m-1
     C = aug(i+1:end,1:i);
     [mc nc] = size(C);
     D = aug(i+1:end,i+1:end);
-    A_inv = inveme2(A);
+    if length(A) ==1
+        A_inv = 1/A;
+    else
+        A_inv = inveme(A);
+    end
+%     A_inv = inveme(A);
     mul = C*A_inv*B;
     form = D-mul;
     upper = [A B];
@@ -24,7 +29,13 @@ end
 
 AA = aug(1:m,1:n);
 bb = aug(1:end,end);
-matrix = aug
-x = inveme(AA)*bb
+matrix = aug;
+disp(matrix)
+% x = inveme(AA)*bb;
+x = AA\bb;
+for i = 1:length(x)
+    aa = sprintf('x%d = %d\n',i,x(i,:));
+    fprintf(aa);
+end
 end
 

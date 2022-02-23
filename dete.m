@@ -3,11 +3,16 @@ function [deter] = dete(matrix)
 %   Detailed explanation goes here
 [m n] = size(matrix);
 if m~= n
-    disp('not square matrix');
-    return
+    error('not square matrix');
 end
+% if m==1
+%     deter = matrix(1);
+%     deter
+%     return
+% end
 if m == 2
     deter = matrix(1,1)*matrix(2,2)-matrix(2,1)*matrix(1,2);
+    return
 else
     answer = 0;
     for j=1:n
@@ -15,5 +20,6 @@ else
         answer = answer + cofactor;
     end
     deter = answer;
+    return
 end
 
