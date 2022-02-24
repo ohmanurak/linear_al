@@ -5,7 +5,7 @@ if m&&n==1
     x = inveme(A)*b
 end
 if m<n
-    error('inconsistent matrix')
+    error('inconsistent matrix: not a square matrix')
 end
 aug = [A b];
 for i=1:m-1
@@ -31,8 +31,8 @@ AA = aug(1:m,1:n);
 bb = aug(1:end,end);
 matrix = aug;
 disp(matrix)
-% x = inveme(AA)*bb;
-x = AA\bb;
+x = inveme(AA)*bb;
+% x = AA\bb;
 for i = 1:length(x)
     aa = sprintf('x%d = %d\n',i,x(i,:));
     fprintf(aa);

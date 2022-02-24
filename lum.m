@@ -1,7 +1,7 @@
 function [l u anser] = lum(matrix,x)
 [m,n] = size(matrix);
 if m ~= n
-    error('incorrect dimension');
+    error('incorrect dimension: not a square matrix');
 end
 L = zeros(m,m);
 U = zeros(m,m);
@@ -27,6 +27,7 @@ d= inveme(l)*x;% d = l\x;
 
 % disp(u\d)
 if isnan(inveme(u)*d)|isinf(inveme(u)*d) ~= zeros(size(inveme(u)*d))
+    disp(u*l);
     error('inconsistent matrix')
 end
 anser = inveme(u)*d;%answer of the system

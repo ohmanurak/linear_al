@@ -1,6 +1,6 @@
 function inverse=inveme(A)
 if dete(A) == 0
-    error('this matrix has no inverse');
+    error('this matrix has no inverse: det(matrix) =0');
 end
 [r c] = size(A);    %determine size of input           
 m = ones(r,c);      %preallocate r x c cofactor matrix        
